@@ -1,0 +1,60 @@
+// Type scale mixin
+// ================
+//
+// [1] Font sizes are based on 'major second' ratio, which is 1.125 (8:9)
+//     http://www.modularscale.com/?16&&1.125&web&text
+// [2] Position of the base font size in the type scale
+
+
+$type-scale: (
+  base-font-size: 16,
+  ratio: 1.125,  // [1]
+  base-label-index: 9,  // [2]
+  labels: yocto zepto atto femto pico nano micro milli uno kilo mega giga tera peta exa zetta yotta bronto gego,
+);
+
+
+// …for getting settings
+//
+@function type-scale($property) {
+  @return map-get($type-scale, $property);
+}
+
+// Returns with the name of the base font size
+//
+@function scale-label-at($position) {
+  @return nth(type-scale('labels'), type-scale('base-label-index') + $position);
+}
+
+// The number of steps between the base scale label and the provided label.
+//
+@function scale-label-position($scale-label) {
+  @return index(type-scale('labels'), $scale-label) - type-scale('base-label-index');
+}
+
+// Returns the proportion between two sizes in $steps distance on the scale.
+// This can be used for em font size values.
+//
+@function font-size-relative($steps) {
+  @return pow(type-scale('ratio'), $steps);
+}
+
+// Returns with the named font size from the type scale.
+// The return value is unitless so it is ideal for calculations.
+//
+@function font-size($scale-label) {
+  @return type-scale('base-font-size') * font-size-relative(scale-label-position($scale-label));
+}
+
+// Returns with the named font size from the type scale, in pixels.
+// This function can be used in CSS rules for non-responsive typography.
+//
+@function font-size-px($scale-label) {
+  @return font-size($scale-label) * 1px;
+}
+
+// Font size in rem units
+//
+@function font-size-rem($scale-label) {
+  @return font-size($scale-label) / type-scale('base-font-size') * 1rem;
+}

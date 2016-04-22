@@ -1,0 +1,187 @@
+// Tools
+// -----
+
+@import "0-tools/aspect-ratio";
+@import "0-tools/clearfix";
+@import "0-tools/pow";
+@import "0-tools/break";
+
+
+// Core
+// ----
+
+@import "1-core/colours";
+@import "1-core/colour-preferences";
+@import "1-core/border-styles";
+@import "1-core/typeface";
+@import "1-core/type-scale";
+@import "1-core/content-width";
+@import "1-core/page";
+@import "1-core/breakpoints";
+@import "1-core/fontsize-leading";
+@import "1-core/space";
+
+
+// // Abstract modules
+// // ----------------
+
+@import "2-abstract-modules/headings";
+
+
+// // Defaults
+// // --------
+
+@import "3-defaults/normalize";
+@import "3-defaults/layout";
+@import "3-defaults/typography";
+
+
+// // Modules
+// // -------
+
+// // ### Atoms
+
+@import "4-modules/atoms/article";
+@import "4-modules/atoms/content";
+@import "4-modules/atoms/section";
+
+// // ### Molecules
+
+// // ### Organisms
+
+
+// // Utilities
+// // ---------
+
+// @import "5-utilities/utilities";
+
+
+/***
+
+Modules
+=======
+
+HTML provides us with some basic semantic elements: paragraphs, sections,
+buttons, tables – but the choice is limited. We want to define our own type of
+elements.
+
+Modules (or components) are our custom UI elements. They can be classified as
+atom, molecule or organism, based on their function and complexity. Components
+always have a HTML part, which conveys the structure and content. They often
+have a CSS part too for presentation, although this is not mandatory.
+
+
+How to create a module?
+-----------------------
+
+The first thing what we do when creating a new UI module is identifying its
+function. Knowing the purpose of the module helps us to give it a good name, so
+later that name can remind us to the purpose.
+
+Then, we identify the constituents of the module, and organise them into a
+structure which can be built in HTML, with the help of the BEM approach.
+
+By following the BEM naming convention, we label the components of our module
+with classes. For example, this the structure of our Menu molecule:
+
+```
+  .m-menu
+    .m-menu__item
+    .m-menu__item
+    .m-menu__item
+```
+
+The next example shows how our Signpost organism is constructed:
+
+```
+  .o-signpost
+    .o-signpost__content
+      .o-signpost__label
+        Label
+      .o-signpost__title
+        Title
+      .o-signpost__info
+        Info bit
+```
+
+
+How to decide what a component is?
+----------------------------------
+
+To decide whether a component is an atom, molecule or organism, we need to
+examine its function and information structure, and should not be influenced
+by how the object looks. The reason being is that the object can appear in
+many different ways, depending on its design. What if the design does not
+communicate the function and structure of the content efficiently? Function
+and content is the ultimate, solid base for good design, and so it
+should be the starting point for atomic classification too.
+
+
+### Atoms
+
+Very simple components are atoms. Their HTML ideally consists of only one
+tag, like for anchors, buttons or headings. Complex HTML structures, like
+lists and tables are either molecules or organisms, depending on their
+function.
+
+If you find that you are trying to building and atom with multiple
+components, think about this:
+
+*   If the sub-components are for structuring the content, then you are
+    building a molecule or organism, rather than atom.
+*   If the sub-components are required only for presentation, then consider
+    using pseudo elements, SVG, or any other solutions which don't treat
+    those sub-components as semantic elements.
+
+Simple containers can be atoms too if they can be handled separately from
+their content.
+
+
+### Molecules
+
+Molecules are groups of atoms or other molecules. They are relatively simple —
+usually they consist of only two or three elements (but sometimes more).
+
+In the HTML they are hollow structures which accommodate their content modules.
+Their stylesheet part is ideally only about the relationship between these
+modules.
+
+Usually it is a good idea to push most style rules out from molecules into
+atoms, keeping the molecule stylesheet lean. This leaves mostly only spacing and
+layout settings in the stylesheet module.
+
+Regarding their content, molecules can't stand on their own. They are
+supporting other elements which together form organisms.
+
+
+## Organisms
+
+Organisms are very similar to molecules. The most important difference is in
+their content: while molecules can't stand on their own, organisms form
+complete, meaningful information units.
+
+The largest modules within a page are typically organisms, but even for some
+of these larger modules it is not clear how they can be classified. If it is
+hard to decide, ask the following questions:
+
+*   Can the content make the element stand-alone? If yes, then it is
+    probably an organism.
+*   Is it a constituent for larger modules, and can be reused within various
+    components? Probably molecule.
+*   Is a well-defined part or section of a page? Probably organism.
+
+If it is still hard to decide, just pick what you prefer. We can always adjust
+this later.
+
+
+Questions
+---------
+
+*   Grids are not semantic elements. Do we still consider them as molecules, or
+    they are rather layout elements?
+*   Can molecules contain organisms? This is true to layout structures, so
+    maybe answering the following question is enough: "are layout elements
+    separate from atomic components".
+*   Can a molecule not be part of any organism?
+
+***/

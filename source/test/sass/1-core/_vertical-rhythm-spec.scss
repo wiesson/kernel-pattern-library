@@ -1,0 +1,59 @@
+// Spec for vertical rhythm
+// ========================
+
+
+@mixin test-vertical-rhythm-before {
+  fontsize-leading('base-font-size'): 16px !global;
+  $base-line-height: 1.375 !global;
+}
+
+
+@include test-module('vertical-rhythm') {
+
+  @include test-vertical-rhythm-before;
+
+
+  // @function space-rem
+  // -------------------
+
+  @include test('space-rem calulates the vertical space from units, and returns the correct rem value') {
+    $actual: space-rem(3.5);
+    $expected: 3.5 * $base-line-height * 1rem;
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('space-rem(0) returns 0') {
+    $actual: space-rem(3.5);
+    $expected: 3.5 * $base-line-height * 1rem;
+    @include assert-equal($actual, $expected);
+  }
+
+
+  // @function space-px
+  // ------------------
+
+  @include test('space-px calulates the vertical space from units, and returns the correct px value') {
+    $actual: space-px(3.5);
+    $expected: 3.5 * $base-line-height * fontsize-leading('base-font-size');
+    @include assert-equal($actual, $expected);
+  }
+
+  @include test('space-px(0) returns 0') {
+    $actual: space-px(0);
+    $expected: 0;
+    @include assert-equal($actual, $expected);
+  }
+
+
+  @include test('@mixin _v-space') {
+    @include assert('output padding-top and padding-bottom with rem values when called with only 2 parameters') {
+      @include input {
+        @include _v-space('padding', 2);
+      }
+      @include expect {
+        padding: $base-line-height * 2rem;
+      }
+    }
+  }
+
+}

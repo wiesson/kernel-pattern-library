@@ -1,0 +1,45 @@
+// Section
+// =======
+//
+// `.a-section` is a container for self-contained, page-level content blocks.
+
+
+.a-section {
+  overflow: hidden;  // keep the content margins inside the section
+  padding-left:  page('padding');
+  padding-right: page('padding');
+}
+
+
+// Border modifiers
+// ----------------
+
+.a-section--separated {
+  border-bottom: 1px solid colour('light-grey');
+}
+
+
+// Background modifiers
+// --------------------
+
+.a-section--alt {
+  background-color: colour('gainsboro-grey');
+}
+
+.a-section--strong {
+  background-color: colour('yellow');
+}
+
+.a-section--inverse {
+  background-color: colour('black');
+  color: colour('white');
+}
+
+
+// Section with overflowing content
+// --------------------------------
+
+.a-section--overflow {
+  @include clearfix;
+  overflow: visible;
+}

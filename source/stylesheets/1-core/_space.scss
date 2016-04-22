@@ -1,0 +1,10 @@
+// Space
+// =====
+
+@function space-rem($units: 1) {
+  @return if($units == 0, 0, $units * line-height('uno') * 1rem);
+}
+
+@function space-px($units: 1) {
+  @return if($units == 0, 0, $units * line-height('uno') * font-size('uno'));
+}

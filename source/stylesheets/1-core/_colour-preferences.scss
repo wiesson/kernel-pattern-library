@@ -1,0 +1,13 @@
+// Colour preferences
+// ==================
+
+$colour-preferences: (
+  'background': colour('white'),
+  'foreground': colour('dark-grey'),
+  'link': colour('magenta'),
+  'link-hover': colour('blue')
+);
+
+@function colour-pref($pref) {
+  @return map-get($colour-preferences, $pref);
+}

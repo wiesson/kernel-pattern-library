@@ -1,0 +1,7 @@
+// Breakpoints
+// ===========
+
+$breakpoints: (
+  'medium': content-width('mega') + page('padding') / 1px * 2,
+  'large':  content-width('yotta') + page('padding') / 1px * 2
+);

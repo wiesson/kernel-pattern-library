@@ -1,0 +1,69 @@
+// Font size / leading
+// ===================
+//
+// [1] Values for line height calculation: (X, Y) --> Xem + Ypx
+
+
+$fontsize-leading: (
+  line-heights: (
+    default: (1.25, 2),  // [1]
+    heading: (1, 5)  // [1]
+  ),
+  auto-cap-small: 'exa'
+);
+
+// …for getting settings
+//
+@function fontsize-leading($property) {
+  @return map-get($fontsize-leading, $property);
+}
+
+
+// Returns with the font size calculation string for calc();
+//
+@function line-height-calc($line-height-type: 'default') {
+  $lh-values: map-get(fontsize-leading('line-heights'), $line-height-type);
+  $lh-em: nth($lh-values, 1);
+  $lh-px: nth($lh-values, 2);
+  @return "#{$lh-em}em + #{$lh-px}px";
+}
+
+// Line height in pixels
+//
+@function line-height-px($scale-label, $line-height-type: 'default') {
+  $lh-values: map-get(fontsize-leading('line-heights'), $line-height-type);
+  $lh-em: nth($lh-values, 1);
+  $lh-px: nth($lh-values, 2);
+  @return font-size($scale-label) * $lh-em + $lh-px;
+}
+
+// Returns with the line height for the specified font size from the
+// type scale in a unitless, proportional format.
+//
+@function line-height($scale-label, $line-height-type: 'default') {
+  @return line-height-px($scale-label, $line-height-type) / font-size($scale-label);
+}
+
+
+
+@mixin auto-cap-small($scale-label) {
+  @if index(type-scale('labels'), $scale-label) > index(type-scale('labels'), fontsize-leading('auto-cap-small')) {
+    @include break($to: "medium") {
+      font-size: font-size-px(fontsize-leading('auto-cap-small'));
+    }
+  }
+}
+
+// The main type scale mixin.
+//
+@mixin fontsize-leading($scale-label, $line-height-type: 'default', $responsive: true) {
+  font-size: font-size-px($scale-label);
+  line-height: line-height($scale-label, $line-height-type);
+
+  @if ($responsive) {
+    font-size: font-size-rem($scale-label); // 2rem
+    line-height: calc(#{line-height-calc($line-height-type)});
+
+    @include auto-cap-small($scale-label);
+  }
+}

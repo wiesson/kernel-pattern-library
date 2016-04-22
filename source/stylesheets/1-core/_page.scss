@@ -1,0 +1,10 @@
+// Page
+// ====
+
+$page: (
+  'padding': 30px
+);
+
+@function page($property) {
+  @return map-get($page, $property);
+}

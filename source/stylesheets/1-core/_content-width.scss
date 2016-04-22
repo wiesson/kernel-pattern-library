@@ -1,0 +1,9 @@
+// Content width
+// =============
+
+$content-width: 32;  // em
+
+// Returns with the maximum content width for a viewport.
+@function content-width($scale-label) {
+  @return (font-size-px(scale-label-at(0)) * $content-width * font-size-relative(scale-label-position($scale-label)));
+}

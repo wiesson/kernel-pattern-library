@@ -1,0 +1,7 @@
+// Aspect ratio
+// ------------
+
+@mixin maintain-aspect-ratio($aspect-ratio) {
+  position: relative;
+  padding-bottom: $aspect-ratio * 100%;
+}

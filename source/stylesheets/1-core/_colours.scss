@@ -1,0 +1,21 @@
+// Colour palette
+// ==============
+
+$colors: (
+  'black': #3a343a,
+  'white': #ffffff,
+
+  'dark-grey': #393b42,
+  'cool-grey': #4a4d55,
+  'medium-grey': #727376,
+  'light-grey': #ededee,
+  'gainsboro-grey': #fafafa,
+
+  'magenta': #de00a5,
+  'blue': #0000ff,
+  'yellow': #fecb51
+);
+
+@function colour($color) {
+  @return map-get($colors, $color);
+}

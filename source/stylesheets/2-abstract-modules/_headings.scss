@@ -1,0 +1,19 @@
+// Heading core properties
+// =======================
+
+@mixin heading($scale-label) {
+  @include fontsize-leading($scale-label, $line-height-type: 'heading');
+  text-rendering: optimizelegibility;
+}
+
+@mixin heading-for-article($scale-label) {
+  @include heading($scale-label);
+  margin-top: line-height($scale-label) * 1.4em;
+  margin-bottom: line-height($scale-label) * .3em;
+}
+
+@mixin heading-for-block($scale-label, $responsive: true) {
+  @include heading($scale-label, $responsive: $responsive);
+  margin-top: .5em;
+  margin-bottom: .5em;
+}

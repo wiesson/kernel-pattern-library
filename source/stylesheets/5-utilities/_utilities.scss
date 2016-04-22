@@ -1,0 +1,17 @@
+// What are these?
+// ---------------
+//
+// The "utilities" layer is the last layer in our CSS structure. Here we can
+// define simle presentational styles, like `.centered` to set
+// `text-align: center` on the element. Since these rules are applied after
+// everything else, they should overwrite lower level settings. This is the
+// only place where it is legal to use the `!important` directive.
+
+
+.u-centered {
+  text-align: center;
+}
+
+.u-relative {
+  position: relative;
+}

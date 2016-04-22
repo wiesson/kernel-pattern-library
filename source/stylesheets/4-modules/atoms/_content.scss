@@ -1,0 +1,76 @@
+// Content container for page-level sections
+// =========================================
+
+.a-content {
+  @include fontsize-leading('uno');
+  max-width: $content-width * 1em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: space-rem(2.5);
+}
+
+
+// Content width modifiers
+// -----------------------
+
+.a-content--mega {
+  @include fontsize-leading('mega');
+}
+
+.a-content--hall {
+  @include break($from: 'medium') {
+    max-width: content-width('mega');
+  }
+  @include break($from: 'large') {
+    max-width: content-width('gego');
+  }
+}
+
+.a-content--stretched {
+  max-width: none;
+  margin-left:  - page('padding');
+  margin-right: - page('padding');
+}
+
+
+// Spacing modifiers
+// -----------------
+
+.a-content--spacious {
+  margin-top:    space-rem(3.5);
+  margin-bottom: space-rem(3.5);
+}
+
+.a-content--spacious-top {
+  margin-top: space-rem(3.5);
+}
+
+.a-content--spacious-bottom {
+  margin-bottom: space-rem(3.5);
+}
+
+.a-content--cosy {
+  margin-top:    space-rem(1.5);
+  margin-bottom: space-rem(1.5);
+}
+
+.a-content--cosy-top {
+  margin-top: space-rem(1.5);
+}
+
+.a-content--cosy-bottom {
+  margin-bottom: space-rem(1.5);
+}
+
+.a-content--contiguous {
+  margin-top:    space-rem(0);
+  margin-bottom: space-rem(0);
+}
+
+.a-content--contiguous-top {
+  margin-top: space-rem(0);
+}
+
+.a-content--contiguous-bottom {
+  margin-bottom: space-rem(0);
+}
