@@ -1,0 +1,14 @@
+// Button atom – abstract module
+// =============================
+
+@mixin button {
+  @include fontsize-leading('uno');
+  border: 0;
+  padding: .3em 1em;
+  background-color: colour('magenta');
+  color: colour('white');
+
+  &:hover {
+    background-color: colour('blue');
+  }
+}
