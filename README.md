@@ -1,5 +1,5 @@
-FL pattern library prototype
-============================
+Modular CSS framework prototype
+===============================
 
 How to get started
 ------------------
