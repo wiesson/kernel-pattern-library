@@ -1,13 +1,16 @@
-Modular CSS framework prototype
-===============================
+Fancy Particles – modular design architecture and framework
+===========================================================
+
 
 How to get started
 ------------------
 
-1.  You will need Git, Ruby and Bundler installed on your machine.
-2.  Once you cloned this repo, run `bundle install` from the main folder of
-    this project, in your terminal.
-3.  Start Middleman with `bundle exec middleman`
-4.  You should be access your app with the url `http://localhost:4567`
+You will need Git, Ruby and Bundler installed on your machine.
+
+1.  Fork this repo
+2.  Clone the fork
+3.  Run `bundle install` from the project folder
+4.  Start Middleman with `bundle exec middleman`
+5.  You should be able to access the server on `http://localhost:4567`
 
 More info about Middleman: https://middlemanapp.com/
