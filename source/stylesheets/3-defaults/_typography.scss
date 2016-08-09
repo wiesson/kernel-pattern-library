@@ -20,17 +20,17 @@ p {
 }
 
 h1 {
-  @include heading-for-article('zetta');
+  @include heading-for-article('h1');
 }
 
 h2 {
-  @include heading-for-article('tera');
+  @include heading-for-article('h2');
 }
 
 h3 {
-  @include heading-for-article('mega');
+  @include heading-for-article('h3');
 }
 
 h4, h5, h6 {
-  @include heading-for-article('uno');
+  @include heading-for-article('h4');
 }

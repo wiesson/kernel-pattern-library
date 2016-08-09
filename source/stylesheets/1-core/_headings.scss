@@ -1,0 +1,75 @@
+// Heading patterns
+// ================
+
+
+@mixin heading-core($scale-label, $responsive: true) {
+  @if is-scale-label-valid($scale-label) {
+    @include fontsize-leading($scale-label, $line-height-type: 'heading', $responsive: $responsive);
+    text-rendering: optimizelegibility;
+    font-weight: bold;
+
+  } @else {
+    @error "Invalid $scale-label: #{$scale-label}";
+  }
+}
+
+
+// Article heading
+// ---------------
+
+$heading-for-article-scale: (
+  'h1': 'zetta',
+  'h2': 'tera',
+  'h3': 'mega',
+  'h4': 'uno',
+  'h5': 'micro',
+  'h6': 'nano'
+);
+
+@mixin heading-for-article($size-label) {
+  $scale-label: map-get($heading-for-article-scale, $size-label);
+
+  @if $scale-label {
+    @include heading-core($scale-label);
+    margin-top: line-height($scale-label) * 1.4em;
+    margin-bottom: line-height($scale-label) * .3em;
+
+  } @else {
+    @error "$size-label should be a key of $heading-for-article-scale. Was: #{$size-label}";
+  }
+}
+
+
+// Block heading
+// -------------
+
+$heading-for-block-scale: (
+  'exlarge': 'bronto',
+  'large':   'yotta',
+  'normal':  'exa',
+  'small':   'tera',
+  'exsmall': 'mega'
+);
+
+$heading-spacing: (
+  top: .5em,
+  bottom: .7em,
+  bottom-block: 1.3em
+);
+
+@function heading-spacing($type) {
+  @return map-get($heading-spacing, $type);
+}
+
+@mixin heading-for-block($size-label, $responsive: true) {
+  $scale-label: map-get($heading-for-block-scale, $size-label);
+
+  @if $scale-label {
+    @include heading-core($scale-label, $responsive: $responsive);
+    margin-top: heading-spacing('top');
+    margin-bottom: heading-spacing('bottom');
+
+  } @else {
+    @error "$size-label should be a key of $heading-for-block-scale. Was: #{$size-label}";
+  }
+}
