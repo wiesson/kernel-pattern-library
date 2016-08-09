@@ -14,6 +14,12 @@ $type-scale: (
 );
 
 
+// Check if a given scale label is valid. Retuns true or false.
+//
+@function is-valid-scale-label($scale-label) {
+  @return map-has-key($type-scale, $scale-label);
+}
+
 // …for getting settings
 //
 @function type-scale($property) {
