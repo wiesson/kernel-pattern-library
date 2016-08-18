@@ -9,12 +9,11 @@ It gives you a tested, robust approach, and a starting point with a handful of t
 How to get started
 ------------------
 
-You will need Git, Ruby and Bundler installed on your machine.
+You will need Ruby and Bundler installed on your machine.
 
 1.  Clone this repo
 2.  Run `bundle install` from the project folder
 3.  Start Middleman with `bundle exec middleman`
 4.  You should be able to access the server on `http://localhost:4567`
 
-
-More info about Middleman: https://middlemanapp.com/
+More info about Middleman and how to install: https://middlemanapp.com/
