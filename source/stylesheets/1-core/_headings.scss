@@ -1,7 +1,6 @@
 // Heading patterns
 // ================
 
-
 @mixin heading-core($scale-label, $responsive: true) {
   @if is-scale-label-valid($scale-label) {
     @include fontsize-leading($scale-label, $line-height-type: 'heading', $responsive: $responsive);
