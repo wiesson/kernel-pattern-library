@@ -17,3 +17,12 @@ You will need Ruby and Bundler installed on your machine.
 4.  You should be able to access the server on `http://localhost:4567`
 
 More info about Middleman and how to install: https://middlemanapp.com/
+
+#### Docker
+
+1. Clone this repo
+2. run ```docker build -t pattern-lib .``` to build the docker container
+3. run ```docker run -d -p 4567:4567 -v `pwd`:/usr/local/pattern-lib/ --name pattern-lib pattern-lib``` to run the docker container
+4. You should be able to access the server on `http://localhost:4567`
+
+Use `docker stop pattern-lib` to stop and `docker start pattern-lib` to start the container.
