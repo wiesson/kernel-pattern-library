@@ -1,0 +1,8 @@
+.m-book-list
+  - data.books.each do |book|
+    .m-book-list__item
+      = book.title
+      = book.author
+      = book.year
+      = book.type
+      %img{src: image_path(book.image)}
